@@ -40,94 +40,94 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                    <div class="card-body">
-                        <div class="form-group row">
-                        <label for="Nisn" class="col-sm-4 col-form-label">NISN</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="nisn" class="form-control" id="Nisn" placeholder="nisn.data.kemdikbud.go.id" required>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="Nama Lengkap" class="col-sm-4 col-form-label">NAMA LENGKAP</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Sesuai Ijazah" required>
-                        </div>
-                        </div>
-                        <!-- OPTION -->
-                        <div class="form-group row">
-                        <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
-                        <div class="col-sm-8">
-                            <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
-                            <option value="">-- Pilih --</option>
-                            <option value="L">Laki-laki</option>
-                            <option value="P">Perempuan</option>
-                            </select>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="tmp_lahir" class="col-sm-4 col-form-label">TEMPAT LAHIR</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="tmp_lahir" class="form-control" id="tmp_lahir" placeholder="Sesuai Ijazah" required>
-                        </div>
-                        </div>
-                        <!-- TANGGAL -->
-                        <div class="form-group row">
-                        <label for="Tanggal Lahir" class="col-sm-4 col-form-label">TANGGAL LAHIR</label>
-                        <div class="col-sm-8">
-                            <div class="input-group">
-                            <input type="date" name="tgl_lahir" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="Nisn" class="col-sm-4 col-form-label">NISN</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="nisn" class="form-control" id="Nisn" placeholder="nisn.data.kemdikbud.go.id" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Nama Lengkap" class="col-sm-4 col-form-label">NAMA LENGKAP</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="nama" class="form-control" id="nama" placeholder="Sesuai Ijazah" required>
+                                </div>
+                            </div>
+                            <!-- OPTION -->
+                            <div class="form-group row">
+                                <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
+                                <div class="col-sm-8">
+                                    <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
+                                        <option value="">-- Pilih --</option>
+                                        <option value="L">Laki-laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tmp_lahir" class="col-sm-4 col-form-label">TEMPAT LAHIR</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="tmp_lahir" class="form-control" id="tmp_lahir" placeholder="Sesuai Ijazah" required>
+                                </div>
+                            </div>
+                            <!-- TANGGAL -->
+                            <div class="form-group row">
+                                <label for="Tanggal Lahir" class="col-sm-4 col-form-label">TANGGAL LAHIR</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                    <input type="date" name="tgl_lahir" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nik" class="col-sm-4 col-form-label">NIK</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="nik" class="form-control" id="nik" placeholder="Kartu Keluarga" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
+                                <div class="col-sm-8">
+                                    <select type="text" name="agama" id="agama" class="form-control">
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katholik">Katholik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Khonghucu">Khonghucu</option>
+                                        <option value="Kepercayaan Kepada Tuhan YME">Kepercayaan Kepada Tuhan YME</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="alamat" class="col-sm-4 col-form-label">ALAMAT</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="alamat" class="form-control" id="alamat" placeholder="Sesuai KK">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Rt" class="col-sm-4 col-form-label">RT / RW</label>
+                                <div class="col-sm-4">
+                                    <input type="text" name="rt" class="form-control" id="Rt" placeholder="000">
+                                </div>
+                            <div class="col-sm-4">
+                                <input type="text" name="rw" class="form-control" id="Rw" placeholder="000">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Dusun" class="col-sm-4 col-form-label">DUSUN</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="dusun" class="form-control" id="Dusun" placeholder="Dusun" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="Kelurahan" class="col-sm-4 col-form-label">KELURAHAN</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="kelurahan" class="form-control" id="Kelurahan" placeholder="Kelurahan" required>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="nik" class="col-sm-4 col-form-label">NIK</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="nik" class="form-control" id="nik" placeholder="Kartu Keluarga" required>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
-                        <div class="col-sm-8">
-                            <select type="text" name="agama" id="agama" class="form-control">
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katholik">Katholik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                            <option value="Khonghucu">Khonghucu</option>
-                            <option value="Kepercayaan Kepada Tuhan YME">Kepercayaan Kepada Tuhan YME</option>
-                            <option value="Lainnya">Lainnya</option>
-                            </select>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="alamat" class="col-sm-4 col-form-label">ALAMAT</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="alamat" class="form-control" id="alamat" placeholder="Sesuai KK">
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="Rt" class="col-sm-4 col-form-label">RT / RW</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="rt" class="form-control" id="Rt" placeholder="000">
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" name="rw" class="form-control" id="Rw" placeholder="000">
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="Dusun" class="col-sm-4 col-form-label">DUSUN</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="dusun" class="form-control" id="Dusun" placeholder="Dusun" required>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="Kelurahan" class="col-sm-4 col-form-label">KELURAHAN</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="kelurahan" class="form-control" id="Kelurahan" placeholder="Kelurahan" required>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                     <div class="col-md-6">
                     <div class="card-body">
@@ -253,7 +253,7 @@
                         <div class="form-group row">
                         <label for="nik_ayh" class="col-sm-4 col-form-label">NIK AYAH</label>
                         <div class="col-sm-8">
-                            <input type="text" name="nik_ayh" class="form-control" id="nik_ayh" placeholder="NIK Ayah">
+                            <input type="text" name="nik_ayh" class="form-control" id="nik_ayh" placeholder="NIK Ayah" required>
                         </div>
                         </div>
                         <div class="form-group row">
@@ -342,7 +342,7 @@
                             <div class="form-group row">
                                 <label for="nik_ibu" class="col-sm-4 col-form-label">NIK IBU</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="nik_ibu" class="form-control" id="nik_ibu" placeholder="NIK Ibu">
+                                    <input type="text" name="nik_ibu" class="form-control" id="nik_ibu" placeholder="NIK Ibu" required>
                                 </div>
                             </div>
                             <div class="form-group row">

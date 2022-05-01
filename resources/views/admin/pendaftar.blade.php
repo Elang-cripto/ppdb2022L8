@@ -54,7 +54,7 @@
                             <td>{{ $baca->skl_asal }}</td>
                             <td>
                               <a href="/admin/edit/{{$baca->id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                              <a href="/admin/delete/{{$baca->id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                              <a href="/admin/delete/{{$baca->id}}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-trash" ></i></a>
                               <button type="button" class="btn btn-info btn-sm"><i class="fa fa-print"></i></button>
                             </td>
                         </tr>

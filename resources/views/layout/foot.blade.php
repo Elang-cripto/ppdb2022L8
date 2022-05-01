@@ -61,7 +61,7 @@ $.widget.bridge('uibutton', $.ui.button)
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
+      "buttons": ["copy", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
@@ -72,5 +72,9 @@ $.widget.bridge('uibutton', $.ui.button)
       "autoWidth": false,
       "responsive": true,
     });
+    $("#manage").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["excel", "pdf"]
+    }).buttons().container().appendTo('#manage_wrapper .col-md-6:eq(0)');
   });
 </script>

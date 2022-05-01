@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PPDB Online | Log in</title>
+  <title>PPDB Online | Registration</title>
 
   <link rel="shortcut icon" href="{{ asset('asset/dist/img/favicon.ico') }}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
@@ -15,28 +15,45 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
-  @include('sweetalert::alert')
-  <div class="login-box">
-  <!-- /.login-logo -->
+<body class="hold-transition register-page">
+    @include('sweetalert::alert')
+<div class="register-box">
   <div class="card card-outline card-primary">
-    
     <div class="card-header text-center">
-      <center>
-        <img src="{{ asset('asset/dist/img/kemenag.png') }}" alt="ppdbonline" height="60" width="60">
-      </center>
-      <a href="#" class="h1"><b>PPDB Online</b></a>
+      <a href="{{ asset('asset/index2.html') }}" class="h1"><b>PPDB Online </b>2022</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Register a new membership</p>
 
-      <form action="/logincek" method="post">
+      <form action="/registeradd" method="post">
         @csrf
+        <div class="input-group mb-3">
+          <input type="text" name="name" class="form-control" placeholder="Full name" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <select type="text" name="jabatan" id="jabatan" class="form-control" required>
+            <option value="" >-- Pilih --</option>
+            <option value="admin" >ADMIN</option>
+            <option value="panitia" >PANITIA</option>
+            <option value="member" >OPERATOR</option>
+            <option value="siswa" >SISWA</option>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-users"></span>
             </div>
           </div>
         </div>
@@ -48,37 +65,37 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+          <input type="password" name="passwordcek" class="form-control" placeholder="Retype password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-      <!-- /.social-auth-links -->
-
-      {{-- <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p> --}}
-      <p class="mb-0">
-        <a href="/register" class="text-center">Register a new membership</a>
-      </p>
+      <a href="/login" class="text-center">I already have a membership</a>
     </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
+    <!-- /.form-box -->
+  </div><!-- /.card -->
 </div>
-<!-- /.login-box -->
+<!-- /.register-box -->
 
 <!-- jQuery -->
 <script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}"></script>

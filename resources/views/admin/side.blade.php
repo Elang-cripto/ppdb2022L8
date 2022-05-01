@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
-    <img src="{{ asset('asset/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="{{ asset('asset/dist/img/kemenag.png') }}" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">PPDB 2022</span>
   </a>
 
@@ -10,10 +10,12 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ asset('asset/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{ asset('foto/admin/'.Auth::user()->foto) }}" class="img-circle elevation-2" alt="User Image">
+        {{-- <img src="{{ asset('foto/admin/default.png') }}" class="img-circle elevation-2" alt="User Image"> --}}
       </div>
       <div class="info">
-        <a href="#" class="d-block">Mukhammad Yasin</a>
+        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+        <span class="right badge badge-success">{{ Auth::user()->role }}</span>
       </div>
     </div>
 
@@ -23,7 +25,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="/admin" class="nav-link {{ ($title === "Dashboard") ? 'active' :'' }}">
+          <a href="/admin" class="nav-link {{ ($title === 'Dashboard') ? 'active' :'' }}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -31,7 +33,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/jumlah" class="nav-link {{ ($title === "Jumlah") ? 'active' :'' }}">
+          <a href="/admin/jumlah" class="nav-link {{ ($title === 'Jumlah') ? 'active' :'' }}">
             <i class="nav-icon fas fa-chart-bar"></i>
             <p>
               Jumlah
@@ -39,7 +41,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/formulir" class="nav-link {{ ($title === "Formulir") ? 'active' :'' }}">
+          <a href="/admin/formulir" class="nav-link {{ ($title === 'Formulir') ? 'active' :'' }}">
             <i class="nav-icon fas fa-clipboard-list"></i>
             <p>
               Formulir
@@ -47,7 +49,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/pendaftar" class="nav-link {{ ($title === "Pendaftar") ? 'active' :'' }}">
+          <a href="/admin/pendaftar" class="nav-link {{ ($title === 'Pendaftar') ? 'active' :'' }}">
             <i class="nav-icon fas fa-user-plus"></i>
             <p>
               Data Pendaftar
@@ -55,7 +57,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/valid" class="nav-link {{ ($title === "Valid") ? 'active' :'' }}">
+          <a href="/admin/valid" class="nav-link {{ ($title === 'Valid') ? 'active' :'' }}">
             <i class="nav-icon fas fa-user-check"></i>
             <p>
               Siswa Valid
@@ -63,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/invalid" class="nav-link {{ ($title === "Invalid") ? 'active' :'' }}">
+          <a href="/admin/invalid" class="nav-link {{ ($title === 'Invalid') ? 'active' :'' }}">
             <i class="nav-icon fas fa-user-times"></i>
             <p>
               Siswa Invalid
@@ -81,26 +83,26 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/manage" class="nav-link {{ ($title === "Manage") ? 'active' :'' }}">
+              <a href="/admin/manage" class="nav-link {{ ($title === 'Manage') ? 'active' :'' }}">
                 <i class="nav-icon fas fa-users-cog"></i>
                 <p>Managemen User</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/instansi" class="nav-link {{ ($title === "Instansi") ? 'active' :'' }}">
+              <a href="/admin/instansi" class="nav-link {{ ($title === 'Instansi') ? 'active' :'' }}">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>Lembaga Asal</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/setting" class="nav-link {{ ($title === "Setting") ? 'active' :'' }}">
+              <a href="/admin/setting" class="nav-link {{ ($title === 'Setting') ? 'active' :'' }}">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>Setting</p>
               </a>
             </li>
           </ul>
         </li>
-        
+
         <li class="nav-item">
           <a href="/logout" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>

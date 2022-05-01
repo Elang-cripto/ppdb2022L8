@@ -46,14 +46,14 @@
                           @php $no = 1; @endphp
                           @foreach ($data as $baca)
                           <tr>
-                              <td>{{ $no++ }}</td>
-                              <td><img alt="Avatar" class="img-circle elevation-2" src="{{ asset('foto/admin/'.$baca->foto) }}" height="50" width="50">{{ $baca->name }}</td>
-                              <td>{{ $baca->email }}</td>
-                              <td>{{ $baca->jabatan }}</td>
-                              <td>
-                                <a href="/admin/manageedit/{{$baca->id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                <a href="/admin/managedel/{{$baca->id}}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-trash" ></i></a>
-                              </td>
+                                <td>{{ $no++ }}</td>
+                                <td><img alt="Avatar" class="img-circle elevation-2" src="{{ asset('foto/admin/'.$baca->foto) }}" height="50" width="50">{{ $baca->name }}</td>
+                                <td>{{ $baca->email }}</td>
+                                <td>{{ $baca->jabatan }}</td>
+                                <td>
+                                    <a href="/admin/manageedit/{{$baca->id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="/admin/managedel/{{$baca->id}}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i class="fa fa-trash" ></i></a>
+                                </td>
                           </tr>
                           @endforeach
                       </tbody>
@@ -70,29 +70,29 @@
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form action="/admin/manageadd" method="post" enctype="multipart/form-data">
+                  <form action="/admin/manageupdate/{{ $cari->id }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" value="{{ $cari->email }}" placeholder="Enter email" required>
                       </div>
                       <div class="form-group">
                         <label for="fullname">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="name" id="fullname" placeholder="Nama Lengkap" required>
+                        <input type="text" class="form-control" name="name" id="fullname" value="{{ $cari->name }}" placeholder="Nama Lengkap" required>
                       </div>
                       <div class="form-group">
                         <label for="jabatan">Jabatan</label>
                         <select type="text" name="jabatan" id="jabatan" class="form-control" required>
-                          <option value="">-- Pilih --</option>
-                          <option value="admin">ADMIN</option>
-                          <option value="panitia">PANITIA</option>
-                          <option value="member">OPERATOR</option>
-                          <option value="siswa">SISWA</option>
-                      </select>
+                          <option value="" {{ ( $cari->jabatan === "") ? 'selected' :'' }}>-- Pilih --</option>
+                          <option value="admin" {{ ( $cari->jabatan === "admin") ? 'selected' :'' }}>ADMIN</option>
+                          <option value="panitia" {{ ( $cari->jabatan === "panitia") ? 'selected' :'' }}>PANITIA</option>
+                          <option value="member" {{ ( $cari->jabatan === "member") ? 'selected' :'' }}>OPERATOR</option>
+                          <option value="siswa" {{ ( $cari->jabatan === "siswa") ? 'selected' :'' }}>SISWA</option>
+                        </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                        <label for="exampleInputPassword1">Password Baru</label>
                         <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
                       </div>
                       <div class="form-group">
@@ -103,6 +103,7 @@
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                           </div>
                         </div>
+                        <small><i>Foto ukuran perbandingan 50x50</i></small>
                       </div>
                     </div>
                     <!-- /.card-body -->

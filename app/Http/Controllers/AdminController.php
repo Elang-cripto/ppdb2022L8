@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Datasiswa;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -31,37 +33,26 @@ class AdminController extends Controller
 
     public function insertformulir(Request $request)
     {
-
-        // $data['foto'] = null;
-
-        //cek poto
-        // $file = $request->file('photo');
-        // if ($file) {
-        //     $file->move('uploads', $file->getClientOriginalName());
-        //     $data['photo'] = 'uploads/' . $file->getClientOriginalName();
-        // }
-
-        // dd($data);
-        // dd($request->all());
-        // dd($data + $request->all());
-        Datasiswa::create([
+        $param = $request->all();
+        $data = array(
             'id_enc' => date('YmdHis'),
             'no_reg' => 'REG-' . date('YmdHis'),
             'status' => 'RESIDU',
-            'rt' => (empty($request->rt)) ? '' : $request->rt,
-            'rw' => (empty($request->rw)) ? '' : $request->rw,
-            'jalur' => (empty($request->jalur)) ? '' : $request->jalur,
-        ] + $request->all());
+            'rt' => (empty($param['rt'])) ? '' : $param['rt'],
+            'rw' => (empty($param['rw'])) ? '' : $param['rw'],
+            'jalur' => (empty($param['jalur'])) ? '' : $param['jalur'],
+        );
 
-        if ($request->hasfile('foto')) {
+        // dd($data + $request->all());
+        $data = Datasiswa::create($data + $request->all());
+
+        if ($request->hasFile('foto')) {
             $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
 
-
         Alert::success('Alhamdulillah', 'Data baru berhasil ditambahkan');
-
         return redirect('/admin/pendaftar');
     }
 
@@ -93,12 +84,12 @@ class AdminController extends Controller
     {
         return view('admin/manage', [
             'title'  => 'Manage',
+            'data' => User::all(),
         ]);
     }
 
     public function edit($id)
     {
-
         return view('admin/edit', [
             'title'  => 'Edit',
             'data' => Datasiswa::Find($id),
@@ -108,7 +99,10 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $data = Datasiswa::Find($id);
-        $data->update($request->all());
+        $data->update([
+            'jalur' => (empty($param['jalur'])) ? '' : $param['jalur'],
+        ] +
+            $request->all());
 
         if ($request->hasfile('foto')) {
             $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
@@ -128,5 +122,66 @@ class AdminController extends Controller
 
         Alert::warning('Alhamdulillah', 'Data berhasil dihapus');
         return redirect('admin/pendaftar');
+    }
+
+    public function manageadd(Request $request)
+    {
+        $data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'jabatan' => $request->jabatan,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60),
+        );
+
+        $data = User::create($data);
+
+        if ($request->hasfile('foto')) {
+            $request->file('foto')->move('foto/admin', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+
+        Alert::success('Alhamdulillah', 'Data baru berhasil ditambahkan');
+        return redirect('/admin/manage');
+    }
+
+    public function manageupdate(Request $request, $id)
+    {
+        $data = User::Find($id);
+        $data->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'jabatan' => $request->jabatan,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60),
+        ]);
+
+        if ($request->hasfile('foto')) {
+            $request->file('foto')->move('foto/admin', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+
+        Alert::success('Alhamdulillah', 'Data baru berhasil ditambahkan');
+        return redirect('/admin/manage');
+    }
+
+    public function manageedit($id)
+    {
+        return view('admin/manageedit', [
+            'title'  => 'Edit',
+            'data' => User::all(),
+            'cari' => User::Find($id),
+        ]);
+    }
+
+    public function managedel($id)
+    {
+        $data = User::Find($id);
+        $data->delete();
+
+        Alert::warning('Alhamdulillah', 'Data berhasil dihapus');
+        return redirect('admin/manage');
     }
 }
